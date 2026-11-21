@@ -1,0 +1,6 @@
+{
+  "name": "Retail Insight",
+  "description": "Live Retail Analytics & Monitoring dashboard with WebRTC video preview, WebSocket YOLO object detection overlays, and PostgreSQL telemetry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
