@@ -36,7 +36,7 @@ const IMAGE_PATH = path.resolve(
 );
 const VIDEO_WIDTH = 1440;
 const VIDEO_HEIGHT = 800;
-const FPS = 15;
+const FPS = 1;
 
 let activeApiKey = parseArg('api-key') || process.env.INGEST_API_KEY || '';
 const ADMIN_EMAIL = parseArg('admin-email') || 'riana@uniqlo.jp';
@@ -640,13 +640,15 @@ async function main() {
       '-deadline',
       'realtime',
       '-cpu-used',
-      '8',
+      '16',
+      '-threads',
+      '1',
       '-b:v',
-      '1400k',
+      '600k',
       '-maxrate',
-      '1800k',
+      '900k',
       '-bufsize',
-      '2800k',
+      '1200k',
       '-g',
       String(FPS),
       '-keyint_min',
@@ -746,7 +748,7 @@ async function main() {
       };
 
       sendFrame();
-      const timer = setInterval(sendFrame, Math.round(1000 / 10));
+      const timer = setInterval(sendFrame, Math.round(1000 / FPS));
       req.on('close', () => {
         clearInterval(timer);
       });

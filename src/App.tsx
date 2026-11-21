@@ -142,7 +142,7 @@ export default function App() {
 
   if (!dashboard) {
     return (
-      <div className="min-h-screen bg-[#F5F6F8] flex items-center justify-center">
+      <div className="min-h-screen w-full bg-white flex items-center justify-center">
         <div className="text-[13px] font-medium text-[#6B7280]">
           Loading Retail Insight...
         </div>
@@ -158,18 +158,16 @@ export default function App() {
       : dashboard.latestDetections;
 
   return (
-    <div className="min-h-screen bg-[#ECEEF2] p-0 sm:p-2.5 lg:p-4 flex items-stretch justify-center">
-      {/* Main Application Window Shell matching reference framing */}
-      <div className="w-full max-w-[1440px] bg-white sm:rounded-[22px] shadow-[0_20px_50px_rgba(15,23,42,0.08)] border border-white/80 overflow-hidden flex min-h-[820px]">
-        {/* Desktop Sidebar */}
-        <div className="hidden lg:flex">
-          <Sidebar
-            activeNav={activeNav}
-            onSelectNav={handleSelectNav}
-            onOpenAccount={() => openModal('auth')}
-            currentUser={currentUser}
-          />
-        </div>
+    <div className="min-h-screen w-full bg-white flex">
+      {/* Desktop Sidebar */}
+      <div className="hidden lg:flex">
+        <Sidebar
+          activeNav={activeNav}
+          onSelectNav={handleSelectNav}
+          onOpenAccount={() => openModal('auth')}
+          currentUser={currentUser}
+        />
+      </div>
 
         {/* Mobile Drawer Sidebar */}
         {mobileMenuOpen && (
@@ -342,7 +340,6 @@ export default function App() {
             />
           )}
         </main>
-      </div>
 
       {/* Config, Ingestion API & Auth Modal */}
       <ConfigAndAuthModal
